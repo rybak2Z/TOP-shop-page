@@ -1,4 +1,4 @@
-import ShopPage from './components/ShopPage';
+import ShopPage from "./components/ShopPage";
 
 function App() {
   return <ShopPage />;
