@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import ItemCard from "./ItemCard";
 
-function ItemList() {
+function ItemList({ handleAddToCart }) {
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -29,10 +29,10 @@ function ItemList() {
     return <p>Loading...</p>;
   }
 
-  return <div>{generateList(products)}</div>;
+  return <div>{generateList(products, handleAddToCart)}</div>;
 }
 
-function generateList(itemsData) {
+function generateList(itemsData, handleAddToCart) {
   const list = [];
   for (const item of itemsData.values()) {
     list.push(
@@ -41,6 +41,7 @@ function generateList(itemsData) {
         price={item.price}
         rating={item.rating}
         key={item.id}
+        handleAddToCart={handleAddToCart}
       />,
     );
   }
