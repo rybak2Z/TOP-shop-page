@@ -3,7 +3,7 @@ import { useState } from "react";
 import ItemCard from "./ItemCard";
 
 function ItemList() {
-  const [data, setData] = useState(null);
+  const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -16,7 +16,7 @@ function ItemList() {
         return response.json();
       })
       .then((response) => {
-        setData(response);
+        setProducts(response);
       })
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
@@ -29,7 +29,7 @@ function ItemList() {
     return <p>Loading...</p>;
   }
 
-  return <div>{generateList(data)}</div>;
+  return <div>{generateList(products)}</div>;
 }
 
 function generateList(itemsData) {
