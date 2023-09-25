@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import ItemCard from "./ItemCard";
 
 function ItemList() {
   const [data, setData] = useState(null);
@@ -34,7 +35,14 @@ function ItemList() {
 function generateList(itemsData) {
   const list = [];
   for (const item of itemsData.values()) {
-    list.push(<p key={item.id}>{item.title}</p>);
+    list.push(
+      <ItemCard
+        title={item.title}
+        price={item.price}
+        rating={item.rating}
+        key={item.id}
+      />,
+    );
   }
   return list;
 }
