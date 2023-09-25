@@ -1,7 +1,13 @@
+import ItemList from "./ItemList";
 import TitleBar from "./TitleBar";
 
 function ShopPage() {
-  return <TitleBar />;
+  return (
+    <>
+      <TitleBar />
+      <ItemList />
+    </>
+  );
 }
 
 export default ShopPage;
